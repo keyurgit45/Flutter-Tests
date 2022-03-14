@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_testing_tutorial/article.dart';
-import 'package:flutter_testing_tutorial/news_service.dart';
+import 'package:flutter_testing_tutorial/models/article.dart';
+import 'package:flutter_testing_tutorial/services/news_service.dart';
 
 class NewsChangeNotifier extends ChangeNotifier {
   final NewsService _newsService;
@@ -15,6 +15,10 @@ class NewsChangeNotifier extends ChangeNotifier {
   bool get isLoading => _isLoading;
 
   Future<void> getArticles() async {
-    // TODO: Implement
+    _isLoading = true;
+    notifyListeners();
+    _articles = await _newsService.getArticles();
+    _isLoading = false;
+    notifyListeners();
   }
 }

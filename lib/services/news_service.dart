@@ -1,5 +1,5 @@
 import 'package:flutter_lorem/flutter_lorem.dart';
-import 'package:flutter_testing_tutorial/article.dart';
+import 'package:flutter_testing_tutorial/models/article.dart';
 
 /// A News service simulating communication with a server.
 class NewsService {
@@ -13,7 +13,7 @@ class NewsService {
   );
 
   Future<List<Article>> getArticles() async {
-    await Future.delayed(const Duration(seconds: 1));
+    await Future.delayed(const Duration(seconds: 2));
     return _articles;
   }
 }
